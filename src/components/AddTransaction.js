@@ -1,9 +1,11 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
+import { GlobalContext } from '../context/GlobalState';
 
 export const AddTransaction = () => {
 
   const [text, setText] = useState('');
   const [amount, setAmount] = useState(0);
+  const {addTransaction} = useContext(GlobalContext);
 
   return (
     <>
@@ -26,6 +28,14 @@ export const AddTransaction = () => {
               value={amount} 
               onChange={(e)=>{setAmount(e.target.value)}}
             />
+        </div>
+        <div className="form-Control">
+          <button className="transaction-submit-button" onClick={()=>{
+            const t = {
+              id: 
+            }
+            addTransaction
+          }}>submit</button>
         </div>
       </form>
     </>
