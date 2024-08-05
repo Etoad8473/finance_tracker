@@ -7,10 +7,21 @@ export const AddTransaction = () => {
   const [amount, setAmount] = useState(0);
   const {addTransaction} = useContext(GlobalContext);
 
+  const onSubmit = e => {
+    e.preventDefault();
+    const newTransaction = {
+      id: Math.random() * 100000,
+      text,
+      amount: Number(amount)
+    }
+
+    addTransaction(newTransaction);
+  }
+
   return (
     <>
       <h3>Add new transaction</h3>
-      <form action="">
+      <form action="" onSubmit={onSubmit}>
         <div className="form-control">
             <label htmlFor="text">Text</label>
             <input 
@@ -29,13 +40,8 @@ export const AddTransaction = () => {
               onChange={(e)=>{setAmount(e.target.value)}}
             />
         </div>
-        <div className="form-Control">
-          <button className="transaction-submit-button" onClick={()=>{
-            const t = {
-              id: 
-            }
-            addTransaction
-          }}>submit</button>
+        <div className="form-control">
+          <input type='submit' value="Add transaction"/>
         </div>
       </form>
     </>
