@@ -41,7 +41,7 @@ export const AddTransaction = () => {
             />
         </div>
         <div className="form-control">
-          <input type='submit' value="Add transaction"/>
+          <input className="btn" type='submit' value="Add transaction"/>
         </div>
       </form>
     </>
